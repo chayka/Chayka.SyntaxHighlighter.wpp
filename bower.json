@@ -1,0 +1,27 @@
+{
+    "name": "Chayka.SyntaxHighlighter",
+    "description": "Source code syntax highlighter WP plugin",
+    "version": "0.0.1",
+    "license": "MIT",
+    "authors": [
+        "Boris Mossounov <borix@tut.by>"
+    ],
+    "keywords": [
+        "WordPress",
+        "Chayka",
+        "source",
+        "code",
+        "syntax",
+        "highlighter",
+        "geshi"
+    ],
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "res/lib",
+        "test",
+        "tests"
+    ],
+    "dependencies": {}
+}

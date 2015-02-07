@@ -1,0 +1,26 @@
+{
+    "appType": "plugin",
+    "appName": "Chayka.SyntaxHighlighter",
+    "appDescription": "Source code syntax highlighter WP plugin",
+    "appKeywords": "WordPress, Chayka, source, code, syntax, highlighter, geshi",
+    "appVersion": "0.0.1",
+    "appAuthor": "Boris Mossounov",
+    "appAuthorEmail": "borix@tut.by",
+    "appAuthorUri": "http://anotherguru.me/",
+    "appLicense": "MIT",
+    "phpNamespace": "Chayka\\SyntaxHighlighter",
+    "chaykaFramework": "external",
+    "chaykaFrameworkDeps": {
+        "helpers": true,
+        "mvc": true,
+        "wp": true,
+        "core": true
+    },
+    "support": [],
+    "register": [
+        "registerActions",
+        "registerFilters",
+        "registerResources",
+        "registerShortcodes"
+    ]
+}

@@ -1,0 +1,42 @@
+{
+  "generator-chayka": {
+    "support": [],
+    "register": [
+      "registerActions",
+      "registerFilters",
+      "registerResources",
+      "registerShortcodes"
+    ],
+    "appType": "plugin",
+    "appName": "Chayka.SyntaxHighlighter",
+    "appDescription": "Source code syntax highlighter WP plugin",
+    "appKeywords": "WordPress, Chayka, source, code, syntax, highlighter, geshi",
+    "appVersion": "0.0.1",
+    "packagistVendor": "chayka",
+    "packagistPackage": "syntax-highlighter-wpp",
+    "phpNamespace": "Chayka\\SyntaxHighlighter",
+    "chaykaFramework": "external",
+    "chaykaFrameworkDeps": {
+      "helpers": true,
+      "mvc": true,
+      "wp": true,
+      "core": true
+    },
+    "initDep": true,
+    "initDepPhpClass": "Chayka\\WP\\Plugin",
+    "initDepMessage": "Chayka Framework functionality is not available",
+    "gitInit": true,
+    "gitRemote": "github",
+    "githubUser": "chayka",
+    "gitRemoteRepo": "git@github.com:chayka/Chayka.SyntaxHighlighter.wpp.git",
+    "gitPush": false,
+    "ideaProject": "Chayka.SyntaxHighlighter.wpp",
+    "ideaDeploymentPath": "/Chayka.Core.wpp/vendor/chayka/syntax-highlighter/",
+    "appAuthor": "Boris Mossounov",
+    "appAuthorEmail": "borix@tut.by",
+    "appAuthorUri": "http://anotherguru.me/",
+    "appLicense": "MIT",
+    "ideaDeploymentServer": "WP Plugins",
+    "appClass": "Plugin"
+  }
+}
