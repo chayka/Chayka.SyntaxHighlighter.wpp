@@ -3,5 +3,6 @@
 	    'content' => '',
 	    'lang' => '',
     ] );
-?>
+if(!$this->lang):?>
 <pre class="code geshi <?php echo $this->lang?>"><?php echo $this->content;?></pre>
+<?php else: echo $this->content; endif;
