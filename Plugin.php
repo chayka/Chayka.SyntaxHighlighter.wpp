@@ -4,6 +4,10 @@ namespace Chayka\SyntaxHighlighter;
 
 use Chayka\WP;
 
+/**
+ * Class Plugin
+ * @package Chayka\SyntaxHighlighter
+ */
 class Plugin extends WP\Plugin{
 
     /* chayka: constants */
@@ -12,10 +16,10 @@ class Plugin extends WP\Plugin{
 
     public static function init(){
         if(!static::$instance){
-            static::$instance = $app = new self(__FILE__, array(
+            static::$instance = $app = new self(__FILE__, [
                 /* chayka: init-controllers */
-            ));
-            $app->dbUpdate(array());
+            ]);
+            $app->dbUpdate( [ ] );
 
             /* chayka: init-addSupport */
         }
@@ -54,6 +58,8 @@ class Plugin extends WP\Plugin{
      * Implement to add addShortcodes() calls;
      */
     public function registerShortcodes(){
+        $this->addShortcode('code');
+
     	/* chayka: registerShortcodes */
     }
 }

@@ -37,6 +37,14 @@
     "appAuthorUri": "http://anotherguru.me/",
     "appLicense": "MIT",
     "ideaDeploymentServer": "WP Plugins",
-    "appClass": "Plugin"
+    "appClass": "Plugin",
+    "shortcodes": [
+      "code"
+    ],
+    "controllers": {
+      "Shortcode": [
+        "code"
+      ]
+    }
   }
 }

@@ -13,11 +13,12 @@
     "autoload": {
         "classmap": [
             "app/helpers",
-            "app/models",
             "Plugin.php"
         ]
     },
-    "require": {},
+    "require": {
+        "geshi/geshi": "dev-master"
+    },
     "requireDev": {},
     "suggest": {
         "chayka/wp": "dev-master",
