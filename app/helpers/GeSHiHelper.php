@@ -1,6 +1,7 @@
 <?php
 
 namespace Chayka\SyntaxHighlighter;
+use Chayka\WP\Models\PostModel;
 use GeSHi;
 
 
@@ -25,12 +26,37 @@ class GeSHiHelper {
 	 * @return string
 	 */
 	public static function highlight($code, $lang){
+		global $post;
+
+		$hash = md5($code);
+		$codeCacheId = sprintf('Syntax.code.%s.%s', $lang, $hash);
+		$codeCache = '';
+		$styleCacheId = sprintf('Syntax.style.%s', $lang);
+		$styles = '';
+		$richPost = null;
+		if($post->ID){
+			$richPost = PostModel::unpackDbRecord($post);
+			$codeCache = $richPost->getMeta($codeCacheId);
+			$styles = $richPost->getMeta($styleCacheId);
+		}
+		if($codeCache){
+			return $styles.$codeCache;
+		}
+
 		$geshi = new GeSHi($code, $lang);
 		$geshi->enable_classes();
-		$styles = self::registerHighlighter($lang, $geshi);
+		if(!$styles){
+			$styles = self::registerHighlighter($lang, $geshi);
+		}
 		$geshi->set_overall_class('code geshi');
 		$code = $geshi->parse_code();
 		$code =preg_replace('%(<pre class="[^"]*">)(&nbsp;)?\s*%m', '$1', $code);
+
+		if($richPost){
+			$richPost->updateMeta($codeCacheId, $code);
+			$richPost->updateMeta($styleCacheId, $styles);
+		}
+
 		return $styles.$code;
 	}
 
