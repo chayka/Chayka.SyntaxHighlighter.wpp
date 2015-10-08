@@ -20,6 +20,8 @@ class Plugin extends WP\Plugin{
                 /* chayka: init-controllers */
             ]);
             $app->dbUpdate( [ ] );
+	        $app->addSupport_PostProcessing(100);
+
 
             /* chayka: init-addSupport */
         }
@@ -38,6 +40,7 @@ class Plugin extends WP\Plugin{
      */
     public function registerFilters() {
 		/* chayka: registerFilters */
+        $this->addFilter('the_content', ['\\Chayka\\SyntaxHighlighter\\GeSHiHelper', 'theContent']);
     }
 
     /**
@@ -58,8 +61,39 @@ class Plugin extends WP\Plugin{
      * Implement to add addShortcodes() calls;
      */
     public function registerShortcodes(){
-        $this->addShortcode('code');
+//        $this->addShortcode('code');
 
     	/* chayka: registerShortcodes */
+    }
+    
+    /* postProcessing */
+
+    /**
+     * This is a hook for save_post
+     *
+     * @param integer $postId
+     * @param WP_Post $post
+     */
+    public function savePost($postId, $post){
+        $richPost = WP\Models\PostModel::unpackDbRecord($post);
+        GeSHiHelper::generatePostHighlighting($richPost);
+    }
+    
+    /**
+     * This is a hook for delete_post
+     *
+     * @param integer $postId
+     */
+    public function deletePost($postId){
+        
+    }
+    
+    /**
+     * This is a hook for trashed_post
+     *
+     * @param integer $postId
+     */
+    public function trashedPost($postId){
+        $this->deletePost($postId);
     }
 }

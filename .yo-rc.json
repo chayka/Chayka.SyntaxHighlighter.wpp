@@ -1,6 +1,8 @@
 {
   "generator-chayka": {
-    "support": [],
+    "support": [
+      "PostProcessing"
+    ],
     "register": [
       "registerActions",
       "registerFilters",
@@ -19,8 +21,7 @@
     "chaykaFrameworkDeps": {
       "helpers": true,
       "mvc": true,
-      "wp": true,
-      "core": true
+      "wp": true
     },
     "initDep": true,
     "initDepPhpClass": "Chayka\\WP\\Plugin",
@@ -36,7 +37,6 @@
     "appAuthorEmail": "borix@tut.by",
     "appAuthorUri": "http://anotherguru.me/",
     "appLicense": "MIT",
-    "ideaDeploymentServer": "WP Plugins",
     "appClass": "Plugin",
     "shortcodes": [
       "code"
