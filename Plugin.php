@@ -40,7 +40,7 @@ class Plugin extends WP\Plugin{
      */
     public function registerFilters() {
 		/* chayka: registerFilters */
-        $this->addFilter('the_content', ['\\Chayka\\SyntaxHighlighter\\GeSHiHelper', 'theContent']);
+        $this->addFilter('the_content', ['\\Chayka\\SyntaxHighlighter\\GeSHiHelper', 'theContent'], 1);
     }
 
     /**

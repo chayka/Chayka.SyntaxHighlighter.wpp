@@ -37,11 +37,11 @@ class GeSHiHelper {
         if(preg_match_all(self::CODE_SNIPPET_PATTERN, $post->getContent(false), $m, PREG_SET_ORDER)){
             foreach($m as $mm){
                 list($pre, $lang, $code) = $mm;
-//                print_r($mm);
                 $lang = trim($lang);
                 $hash = md5($pre);
                 $cache[$hash] = self::highlight($code, $lang);
             }
+//            die();
         }
 
         if(count($cache)){
@@ -72,7 +72,7 @@ class GeSHiHelper {
                 $content = preg_replace_callback(self::CODE_SNIPPET_PATTERN, function ($matches) use ($cache){
                     $pre = $matches[0];
                     $hash = md5($pre);
-                    return Util::getItem($cache['code'], $hash, $pre);
+                    return Util::getItem($cache['code'], $hash);
                 }, $content);
                 if(isset($cache['style'])){
                     $content = $cache['style']."\n".$content;
