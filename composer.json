@@ -21,7 +21,6 @@
     },
     "requireDev": {},
     "suggest": {
-        "chayka/wp": "dev-master",
         "chayka/core-wpp": "dev-master"
     }
 }
