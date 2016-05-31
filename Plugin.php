@@ -14,6 +14,9 @@ class Plugin extends WP\Plugin{
     
     public static $instance = null;
 
+    /**
+     * Plugin initialization
+     */
     public static function init(){
         if(!static::$instance){
             static::$instance = $app = new self(__FILE__, [
@@ -72,7 +75,7 @@ class Plugin extends WP\Plugin{
      * This is a hook for save_post
      *
      * @param integer $postId
-     * @param WP_Post $post
+     * @param \WP_Post $post
      */
     public function savePost($postId, $post){
         $richPost = WP\Models\PostModel::unpackDbRecord($post);
